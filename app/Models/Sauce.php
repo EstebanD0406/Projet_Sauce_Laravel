@@ -25,4 +25,9 @@ class Sauce extends Model
         'usersLiked' => 'array',
         'usersDisliked' => 'array'
     ];
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class)->withPivot('like')->withTimestamps();
+    }
 }
